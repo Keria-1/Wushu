@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中华武术研学交流网-首页</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="/images/Logo.png" alt="Logo" width="20" height="20" class="me-2">
+                <span>中华武术研学交流网</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> 首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consult.html"><i class="fas fa-newspaper me-1"></i> 武术咨询</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html"><i class="fas fa-book-reader me-1"></i> 武术研学</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exchange.html"><i class="fas fa-comments me-1"></i> 武术交流</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-phone me-1"></i> 联系我们</a>
+                    </li>
+
+                    <!-- 未登录 -->
+                    <li class="nav-item" id="loginRegBtn">
+                        <a class="nav-link btn btn-outline-light ms-2" href="login.html">
+                            <i class="fas fa-user me-1"></i>登录
+                        </a>
+                    </li>
+
+                    <!-- 已登录 -->
+                    <li class="nav-item dropdown d-none" id="userMenu">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" data-bs-toggle="dropdown">
+                            <img src="" class="rounded-circle user-avatar" id="navAvatar" width="32" height="32">
+                            <span id="navUsername">用户名</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user-circle me-1"></i> 个人中心</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="javascript:logout()"><i class="fas fa-sign-out-alt me-1"></i> 退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="wushuCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#wushuCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#wushuCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#wushuCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="/images/banner.jpg" class="d-block w-100" alt="武术研学开营仪式">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="carousel-title">传承中华武魂，深耕研学之路</h1>
+                    <p class="carousel-desc">一站式武术研学交流平台，带你领略中华武术的博大精深</p>
+                    <a href="#" class="btn btn-warning btn-lg carousel-btn">立即了解研学课程</a>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="/images/wushu1.jpg" class="d-block w-100" alt="传统武术技艺教学">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="carousel-title">最新武术资讯，精选特色活动</h1>
+                    <p class="carousel-desc">实时更新武术行业新闻、各地研学活动、赛事信息，不错过任何精彩瞬间</p>
+                    <a href="consult.html" class="btn btn-warning btn-lg carousel-btn">查看全部新闻与活动</a>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="/images/wushu2.jpg" class="d-block w-100" alt="武术爱好者交流切磋">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="carousel-title">以武会友，共探文化精髓</h1>
+                    <p class="carousel-desc">加入交流社区，与全国武术爱好者共同成长进步</p>
+                    <a href="#" class="btn btn-warning btn-lg carousel-btn">进入交流社区</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#wushuCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#wushuCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <section class="research-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心研学项目</h2>
+                <p>聚焦传统武术流派，打造沉浸式研学体验，让每个爱好者都能学有所获</p>
+                <hr>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 research-card">
+                        <img src="/images/shaolin.jpg" class="card-img-top" alt="少林功夫研学">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-dragon"></i>少林功夫研学</h5>
+                            <p class="card-text">深入嵩山少林寺，跟随武僧学习基础拳术、棍法，了解少林武术的历史传承与禅武文化。</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-sm card-btn shaolin-btn">查看详情 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 research-card">
+                        <img src="/images/taiji.jpg" class="card-img-top" alt="太极文化研学">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-yin-yang"></i>太极文化研学</h5>
+                            <p class="card-text">走进太极发源地，学习陈氏、杨氏太极基础套路，领悟太极“以柔克刚”的哲学思想与养生价值。</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-sm card-btn taiji-btn">查看详情 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 research-card">
+                        <img src="/images/feiyi.jpg" class="card-img-top" alt="传统武术非遗研学">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-award"></i>传统武术非遗研学</h5>
+                            <p class="card-text">走访各地非遗武术流派，与非遗传承人面对面交流，学习独门技艺，记录武术非遗的活态传承。</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-sm card-btn feiyi-btn">查看详情 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="culture-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="culture-title">中华武术，不止于技</h2>
+                    <p class="culture-desc">中华武术历经数千年传承，是中华民族的文化瑰宝，它不仅是一套强身健体的技艺，更蕴含着中国人的处世哲学、道德观念与民族精神。</p>
+                    <ul class="list-unstyled culture-list">
+                        <li class="d-flex align-items-center"><i class="fas fa-check-circle"></i><span>强身健体：提升心肺功能、增强肢体协调性，打造健康体魄</span></li>
+                        <li class="d-flex align-items-center"><i class="fas fa-check-circle"></i><span>修身养性：培养坚韧不拔的意志，领悟“止戈为武”的处世智慧</span></li>
+                        <li class="d-flex align-items-center"><i class="fas fa-check-circle"></i><span>文化传承：承载中华传统文化，连接古今，传递民族精神内核</span></li>
+                    </ul>
+                    <a href="#" class="btn btn-warning btn-lg culture-btn">探索武术文化全景 <i class="fas fa-book-open"></i></a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6"><img src="/images/wushu3.jpg" alt="太极演练" class="culture-img w-100 rounded"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section pt-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4 col-lg-3">
+                    <h5 class="footer-title">中华武术研学交流网</h5>
+                    <p class="footer-desc">专注于中华传统武术的研学推广与交流，致力于让更多人了解武术、热爱武术、传承武术。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="footer-title">快速导航</h5>
+                    <ul class="list-unstyled footer-nav">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="consult.html">武术咨询</a></li>
+                        <li><a href="research.html">武术研学</a></li>
+                        <li><a href="exchange.html">武术交流</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="footer-title">联系方式</h5>
+                    <ul class="list-unstyled footer-contact">
+                        <li class="d-flex align-items-center mb-2"><i class="fas fa-map-marker-alt me-2"></i><span>北京市朝阳区武术文化产业园1008号</span></li>
+                        <li class="d-flex align-items-center mb-2"><i class="fas fa-phone me-2"></i><span>400-888-9999</span></li>
+                        <li class="d-flex align-items-center mb-2"><i class="fas fa-envelope me-2"></i><span>wushu@yanxue.com</span></li>
+                        <li class="d-flex align-items-center"><i class="fas fa-clock me-2"></i><span>周一至周日 9:00-21:00</span></li>
+                    </ul>
+                </div>
+                <div class="col-md-12 col-lg-3">
+                    <h5 class="footer-title">订阅研学公告</h5>
+                    <p class="footer-desc">第一时间获取最新研学课程、活动通知与武术文化资讯</p>
+                    <form class="footer-form d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="输入您的邮箱">
+                        <button type="submit" class="btn btn-warning">订阅</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center pb-3">
+                <p class="copyright mb-0">&copy; 2026 中华武术研学交流网 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/TouX.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const userStr = localStorage.getItem('user');
+            let user = null;
+            try {
+                user = JSON.parse(userStr);
+            } catch (e) {
+                user = null;
+            }
+
+            const loginRegBtn = document.getElementById('loginRegBtn');
+            const userMenu = document.getElementById('userMenu');
+            const navAvatar = document.getElementById('navAvatar');
+            const navUsername = document.getElementById('navUsername');
+
+            // 默认头像
+            const defaultAvatar = "/static/images/default-avatar.png";
+
+            if (user && user.username) {
+                loginRegBtn.style.display = 'none';
+                userMenu.classList.remove('d-none');
+
+                if (user.avatar && user.avatar.trim() !== '') {
+                    let avatarPath = user.avatar;
+                    avatarPath = avatarPath.replace(/\\/g, '/');
+                    if (!avatarPath.startsWith('/static')) {
+                        avatarPath = '/static' + avatarPath;
+                    }
+                    navAvatar.src = avatarPath;
+                } else {
+                    navAvatar.src = defaultAvatar;
+                }
+                
+                navUsername.innerText = user.username;
+            } else {
+                loginRegBtn.style.display = 'block';
+                userMenu.classList.add('d-none');
+                navAvatar.src = defaultAvatar;
+            }
+
+            // 图片加载失败兜底
+            navAvatar.onerror = function () {
+                this.src = defaultAvatar;
+            };
+        });
+
+        // 退出登录
+        function logout() {
+            if (confirm('确定要退出登录吗？')) {
+                localStorage.removeItem('user');
+                localStorage.removeItem('userInfo');
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

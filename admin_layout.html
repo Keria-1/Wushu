@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}武术研学管理后台{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 保留外部css引用-->
+    <link rel="stylesheet" href="/css/admin_layout.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <div class="top-nav">
+        <h1>中华武术研学交流网管理平台</h1>
+        <div class="d-flex align-items-center gap-3">
+        <img src="https://p3-passport.byteacctimg.com/img/user-avatar/99e8be319657d4799998402c28808f984~300x300.image" 
+            class="admin-avatar" 
+            alt="管理员头像">
+        <span class="text-white" id="adminUsername">超级管理员</span>
+        <a href="/admin/logout" class="btn btn-light btn-sm">退出登录</a>
+    </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <div class="main-container" style="display: flex; height: calc(100vh - 60px);">
+        <!-- 左侧侧边栏 -->
+        <div class="sidebar">
+            <a href="/admin/index.html" class="menu-item">系统首页</a>
+            <a href="/admin/user.html" class="menu-item">用户管理</a>
+            <a href="/admin/research.html" class="menu-item">研学项目管理</a>
+            <a href="/admin/news.html" class="menu-item">武术资讯管理</a>
+            <a href="/admin/enroll.html" class="menu-item">报名审核管理</a>
+            <a href="/admin/carousel.html" class="menu-item">轮播图管理</a>
+            <a href="/admin/log.html" class="menu-item">操作日志</a>
+            <a href="/admin/info.html" class="menu-item">个人中心</a>
+        </div>
+
+        <!-- 右侧内容区-->
+        <div class="content-area">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            // 1. 高亮当前菜单
+            const currentPath = window.location.pathname;
+            $('.sidebar .menu-item').each(function() {
+                if ($(this).attr('href') === currentPath) {
+                    $(this).addClass('active');
+                }
+            });
+
+            // 2. 动态加载管理员用户名
+            const adminInfo = JSON.parse(localStorage.getItem('adminInfo') || '{}');
+            if (adminInfo.nickname) {
+                $('#adminUsername').text(adminInfo.nickname);
+            } else if (adminInfo.username) {
+                $('#adminUsername').text(adminInfo.username);
+            }
+
+        });
+    </script>
+</body>
+</html>

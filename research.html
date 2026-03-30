@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武术研学 - 中华武术研学交流网</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/research.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/Logo.png" alt="Logo" width="20" height="20" class="me-2">
+                <span>中华武术研学交流网</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> 首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consult.html"><i class="fas fa-newspaper me-1"></i> 武术咨询</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html"><i class="fas fa-book-reader me-1"></i> 武术研学</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exchange.html"><i class="fas fa-comments me-1"></i> 武术交流</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-phone me-1"></i> 联系我们</a>
+                    </li>
+
+                    <!-- 未登录 -->
+                    <li class="nav-item" id="loginRegBtn">
+                        <a class="nav-link btn btn-outline-light ms-2" href="login.html">
+                            <i class="fas fa-user me-1"></i>登录
+                        </a>
+                    </li>
+
+                    <!-- 已登录 -->
+                    <li class="nav-item dropdown d-none" id="userMenu">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" data-bs-toggle="dropdown">
+                            <img src="" class="rounded-circle user-avatar" id="navAvatar" width="32" height="32">
+                            <span id="navUsername">用户名</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user-circle me-1"></i> 个人中心</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="javascript:logout()"><i class="fas fa-sign-out-alt me-1"></i> 退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- 页面标题区 -->
+    <header class="page-header">
+        <div class="container text-center">
+            <h1>武术研学</h1>
+            <p>沉浸式体验中华武术文化，跟随名师深度研学</p>
+        </div>
+    </header>
+
+    <!-- 热门研学课程 -->
+    <section class="research-section course-section">
+        <div class="container">
+            <h2 class="section-title">热门研学课程</h2>
+            <div class="row g-4">
+                <!-- 课程1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="price-tag">¥3980</div>
+                        <div class="card-content">
+                            <h5 class="card-title">少林功夫研学营（7天）</h5>
+                            <p class="card-text">深入嵩山少林寺，跟随武僧学习基础拳术、棍法，体验禅武文化。</p>
+                            <div class="course-info">
+                                <span><i class="fas fa-map-marker-alt"></i> 河南·嵩山</span>
+                                <span><i class="fas fa-clock"></i> 7天6晚</span>
+                            </div>
+                            <a href="#" class="btn btn-warning w-100 course-btn">立即报名</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 课程2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="price-tag">¥4580</div>
+                        <div class="card-content">
+                            <h5 class="card-title">太极文化深度研学（10天）</h5>
+                            <p class="card-text">走进陈家沟，跟随非遗传承人学习陈氏太极，领悟太极哲学。</p>
+                            <div class="course-info">
+                                <span><i class="fas fa-map-marker-alt"></i> 河南·温县</span>
+                                <span><i class="fas fa-clock"></i> 10天9晚</span>
+                            </div>
+                            <a href="#" class="btn btn-warning w-100 course-btn">立即报名</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 课程3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="price-tag">¥5280</div>
+                        <div class="card-content">
+                            <h5 class="card-title">非遗武术传承计划（14天）</h5>
+                            <p class="card-text">走访三大非遗武术流派，与传承人面对面交流，学习独门技艺。</p>
+                            <div class="course-info">
+                                <span><i class="fas fa-map-marker-alt"></i> 多地联动</span>
+                                <span><i class="fas fa-clock"></i> 14天13晚</span>
+                            </div>
+                            <a href="#" class="btn btn-warning w-100 course-btn">立即报名</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 研学成果展示（替换原研学基地） -->
+    <section class="research-section achievement-section">
+        <div class="container">
+            <h2 class="section-title">研学成果展示</h2>
+            <div class="row g-4">
+                <!-- 成果1：学员证书 -->
+                <div class="col-lg-4">
+                    <div class="card h-100 achievement-card">
+                        <img src="images/achievement1.jpg" class="card-img-top" alt="学员结业证书">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-certificate text-warning"></i> 官方认证结业证书</h5>
+                            <p class="card-text">所有完成研学课程的学员，均可获得由武术协会与研学基地联合颁发的结业证书，证书可作为武术学习经历的官方认证。</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 成果2：赛事获奖 -->
+                <div class="col-lg-4">
+                    <div class="card h-100 achievement-card">
+                        <img src="images/achievement2.jpg" class="card-img-top" alt="学员赛事获奖">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-trophy text-warning"></i> 赛事荣誉成果</h5>
+                            <p class="card-text">累计输送500+研学学员参与全国武术赛事，获得金牌89枚、银牌126枚、铜牌158枚，学员技艺得到专业认可。</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 成果3：文化传播 -->
+                <div class="col-lg-4">
+                    <div class="card h-100 achievement-card">
+                        <img src="images/achievement3.jpg" class="card-img-top" alt="武术文化传播">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-globe-asia text-warning"></i> 文化传播成果</h5>
+                            <p class="card-text">组织学员参与国内外武术文化交流活动30+场，累计向海外传播中华武术文化，覆盖受众超10万人次。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 成果数据统计 -->
+            <div class="achievement-stats mt-5">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <span class="stat-number">10000+</span>
+                            <p class="stat-desc">累计研学学员</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <p class="stat-desc">合作研学基地</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <span class="stat-number">80+</span>
+                            <p class="stat-desc">专业授课名师</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <p class="stat-desc">学员满意度</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4 col-lg-3">
+                    <h5 class="footer-title">中华武术研学交流网</h5>
+                    <p class="footer-desc">专注于中华传统武术的研学推广与交流，致力于让更多人了解武术、热爱武术、传承武术。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="footer-title">快速导航</h5>
+                    <ul class="list-unstyled footer-nav">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="wushu-consult.html">武术咨询</a></li>
+                        <li><a href="wushu-research.html">武术研学</a></li>
+                        <li><a href="wushu-exchange.html">武术交流</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="footer-title">联系方式</h5>
+                    <ul class="list-unstyled footer-contact">
+                        <li class="d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>北京市朝阳区武术文化产业园1008号</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fas fa-phone"></i>
+                            <span>400-888-9999</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fas fa-envelope"></i>
+                            <span>wushu@yanxue.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12 col-lg-3">
+                    <h5 class="footer-title">订阅研学公告</h5>
+                    <p class="footer-desc">第一时间获取最新研学课程、活动通知与武术文化资讯</p>
+                    <form class="footer-form">
+                        <input type="email" class="form-control" placeholder="输入您的邮箱" aria-label="邮箱订阅">
+                        <button type="submit" class="btn btn-warning">订阅</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="footer-hr">
+            <div class="text-center">
+                <p class="copyright">&copy; 2026 中华武术研学交流网 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/TouX.js"></script>
+</body>
+</html>

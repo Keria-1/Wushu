@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武术咨询 - 中华武术研学交流网</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/consult.css">
+    <style>
+        .user-avatar {
+            width: 28px;
+            height: 28px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/Logo.png" alt="Logo" width="20" height="20" class="me-2">
+                <span>中华武术研学交流网</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> 首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consult.html"><i class="fas fa-newspaper me-1"></i> 武术咨询</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html"><i class="fas fa-book-reader me-1"></i> 武术研学</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exchange.html"><i class="fas fa-comments me-1"></i> 武术交流</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-phone me-1"></i> 联系我们</a>
+                    </li>
+
+                    <!-- 未登录 -->
+                    <li class="nav-item" id="loginRegBtn">
+                        <a class="nav-link btn btn-outline-light ms-2" href="login.html">
+                            <i class="fas fa-user me-1"></i>登录
+                        </a>
+                    </li>
+
+                    <!-- 已登录 -->
+                    <li class="nav-item dropdown d-none" id="userMenu">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" data-bs-toggle="dropdown">
+                            <img src="" class="rounded-circle user-avatar" id="navAvatar" width="32" height="32">
+                            <span id="navUsername">用户名</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user-circle me-1"></i> 个人中心</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="javascript:logout()"><i class="fas fa-sign-out-alt me-1"></i> 退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- 页面标题区 -->
+    <header class="page-header">
+        <div class="container text-center">
+            <h1>武术咨询</h1>
+            <p>掌握最新武术资讯，了解行业动态与精彩活动</p>
+        </div>
+    </header>
+
+    <!-- 新闻动态板块 -->
+    <section class="consult-section news-section">
+        <div class="container">
+            <h2 class="section-title">新闻动态</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="news-card">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> 2026-01-21</div>
+                        <h5 class="card-title">全国武术非遗保护工作会议在京召开</h5>
+                        <p class="card-text">会议围绕武术非遗传承与创新展开深入研讨，发布多项保护政策，推动传统武术活态传承。</p>
+                        <a href="#" class="news-link">阅读详情 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="news-card">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> 2026-01-18</div>
+                        <h5 class="card-title">2026年全国青少年武术锦标赛报名启动</h5>
+                        <p class="card-text">本次赛事设20个竞赛项目，面向全国12-18岁青少年开放报名，旨在发掘武术后备人才。</p>
+                        <a href="#" class="news-link">阅读详情 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="news-card">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> 2026-01-15</div>
+                        <h5 class="card-title">少林功夫亮相国际非遗博览会，圈粉海外友人</h5>
+                        <p class="card-text">少林武僧团带来精彩的拳术、棍法表演，向世界展示中华武术的独特魅力与文化内涵。</p>
+                        <a href="#" class="news-link">阅读详情 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 赛事通知与最新活动板块 -->
+    <section class="consult-section event-section">
+        <h2 class="section-title">赛事活动</h2>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="card mb-3 activity-card">
+                        <img src="images/match1.jpg" class="card-img-top" alt="武魂杯散打邀请赛">
+                        <div class="card-body">
+                            <h5 class="card-title">2026年“武魂杯”全国武术散打邀请赛</h5>
+                            <p class="card-text">地点：河南省郑州市 | 项目：男子/女子散打各8个级别</p>
+                            <p class="card-text"><small>比赛时间：2026-03-15 | 报名截止：2026-02-28</small></p>
+                            <a href="#" class="btn btn-sm activity-btn">立即报名</a>
+                        </div>
+                    </div>
+                    <div class="card mb-3 activity-card">
+                        <img src="images/match2.jpg" class="card-img-top" alt="世界传统武术锦标赛">
+                        <div class="card-body">
+                            <h5 class="card-title">第七届世界传统武术锦标赛</h5>
+                            <p class="card-text">地点：四川省乐山市 | 项目：传统拳术、器械对练等</p>
+                            <p class="card-text"><small>比赛时间：2026-05-20 | 报名截止：2026-04-10</small></p>
+                            <a href="#" class="btn btn-sm activity-btn">立即报名</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-3 activity-card">
+                        <img src="images/activity1.jpg" class="card-img-top" alt="太极文化体验营">
+                        <div class="card-body">
+                            <h5 class="card-title">2026年太极文化研学体验营</h5>
+                            <p class="card-text">走进太极发源地陈家沟，跟随非遗传承人学习陈氏太极，感悟太极哲学。</p>
+                            <p class="card-text"><small>活动时间：2026-02-10 至 2026-02-17</small></p>
+                            <a href="#" class="btn btn-sm activity-btn">立即报名</a>
+                        </div>
+                    </div>
+                    <div class="card activity-card">
+                        <img src="images/activity2.jpg" class="card-img-top" alt="武术文化讲座">
+                        <div class="card-body">
+                            <h5 class="card-title">“止戈为武”武术文化主题讲座</h5>
+                            <p class="card-text">邀请武术名家解读“武”的文化内涵，探讨武术在当代社会的价值与意义。</p>
+                            <p class="card-text"><small>活动时间：2026-02-25 14:00-16:00</small></p>
+                            <a href="#" class="btn btn-sm activity-btn">预约参与</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer-section pt-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-4 col-lg-3">
+                    <h5 class="footer-title">中华武术研学交流网</h5>
+                    <p class="footer-desc">专注于中华传统武术的研学推广与交流，致力于让更多人了解武术、热爱武术、传承武术。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h5 class="footer-title">快速导航</h5>
+                    <ul class="list-unstyled footer-nav">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="consult.html">武术咨询</a></li>
+                        <li><a href="research.html">武术研学</a></li>
+                        <li><a href="exchange.html">武术交流</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="footer-title">联系方式</h5>
+                    <ul class="list-unstyled footer-contact">
+                        <li class="d-flex align-items-center mb-2"><i class="fas fa-map-marker-alt me-2"></i><span>北京市朝阳区武术文化产业园1008号</span></li>
+                        <li class="d-flex align-items-center mb-2"><i class="fas fa-phone me-2"></i><span>400-888-9999</span></li>
+                        <li class="d-flex align-items-center mb-2"><i class="fas fa-envelope me-2"></i><span>wushu@yanxue.com</span></li>
+                        <li class="d-flex align-items-center"><i class="fas fa-clock me-2"></i><span>周一至周日 9:00-21:00</span></li>
+                    </ul>
+                </div>
+                <div class="col-md-12 col-lg-3">
+                    <h5 class="footer-title">订阅研学公告</h5>
+                    <p class="footer-desc">第一时间获取最新研学课程、活动通知与武术文化资讯</p>
+                    <form class="footer-form d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="输入您的邮箱">
+                        <button type="submit" class="btn btn-warning">订阅</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center pb-3">
+                <p class="copyright mb-0">&copy; 2026 中华武术研学交流网 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/TouX.js"></script>
+</body>
+</html> 

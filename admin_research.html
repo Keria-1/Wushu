@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研学项目管理 - 中华武术研学交流网</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/admin_research.css">
+</head>
+<body>
+  <div class="header">
+    <h1>中华武术研学交流网管理平台</h1>
+    <div>
+      <span style="margin-right: 10px;">超级管理员</span>
+      <a href="/admin/logout">退出登录</a>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="sidebar">
+      <a href="/admin/index.html" class="menu-item">系统首页</a>
+      <a href="/admin/user.html" class="menu-item">用户管理</a>
+      <a href="/admin/research.html" class="menu-item active">研学项目管理</a>
+      <a href="/admin/news.html" class="menu-item">武术资讯管理</a>
+      <a href="/admin/enroll.html" class="menu-item">报名审核管理</a>
+      <a href="/admin/carousel.html" class="menu-item">轮播图管理</a>
+      <a href="/admin/log.html" class="menu-item">操作日志</a>
+    </div>
+
+    <!-- 右侧内容区 -->
+     <div class="main-content">
+      <div class="main-content-card">
+        <h3>用户注册信息管理</h3>
+        <!-- 搜索栏 + 操作按钮 -->
+        <div class="search-bar d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <input type="text" id="keyword" class="form-control" style="width: 300px;" placeholder="输入手机号/用户名搜索">
+                <button class="btn btn-primary mt-2" onclick="loadUserList()">搜索</button>
+                <button class="btn btn-default mt-2" onclick="$('#keyword').val(''); loadUserList()">重置</button>
+            </div>
+            <div>
+                <button class="btn btn-add">添加用户</button>
+                <button class="btn btn-del ms-2" onclick="batchDeleteUser()">批量删除</button>
+            </div>
+        </div>
+
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="输入项目名称搜索" id="searchInput">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="searchBtn">搜索</button>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <select class="form-control" id="statusSelect">
+            <option value="">全部状态</option>
+            <option value="1">已上线</option>
+            <option value="0">已下线</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead style="background-color: #f5f5f5;">
+            <tr>
+              <th><input type="checkbox" id="checkAll"></th>
+              <th>ID</th>
+              <th>项目名称</th>
+              <th>时长(天)</th>
+              <th>价格(元)</th>
+              <th>封面图</th>
+              <th>状态</th>
+              <th>创建时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="projectTableBody">
+          </tbody>
+        </table>
+      </div>
+
+      <nav aria-label="Page navigation">
+        <ul class="pagination" id="pagination">
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="modalTitle">新增研学项目</h4>
+        </div>
+        <div class="modal-body">
+          <form id="projectForm" enctype="multipart/form-data">
+            <input type="hidden" id="projectId">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>项目名称 <span style="color: red;">*</span></label>
+                  <input type="text" class="form-control" id="projectName" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>时长(天) <span style="color: red;">*</span></label>
+                  <input type="number" class="form-control" id="projectDuration" min="1" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>价格(元) <span style="color: red;">*</span></label>
+                  <input type="number" class="form-control" id="projectPrice" min="0" step="0.01" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>项目简介</label>
+                  <textarea class="form-control" id="projectDesc" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>封面图片</label>
+                  <input type="file" class="form-control" id="projectImg" accept="image/png,image/jpeg,image/jpg">
+                  <img id="imgPreview" src="" alt="预览图">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>项目状态 <span style="color: red;">*</span></label>
+                  <select class="form-control" id="projectStatus" required>
+                    <option value="1">已上线</option>
+                    <option value="0">已下线</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="saveProjectBtn">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+  <script>
+  const API_BASE_URL = '/admin/api';
+  let currentPage = 1;
+  let pageSize = 10;
+  let totalCount = 0;
+  let projectListCache = [];
+
+  $.ajaxSetup({
+      xhrFields: { withCredentials: true },
+      crossDomain: true
+  });
+
+  $(function() {
+    loadProjectList();
+    bindEvents();
+  });
+
+  function handleNotLogin() {
+    alert("登录已过期，请重新登录！");
+    window.location.href = "/admin/login.html";
+  }
+
+  function bindEvents() {
+    $('#saveProjectBtn').click(function() {
+      saveProject();
+    });
+
+    $('#checkAll').change(function() {
+      let isChecked = $(this).prop('checked');
+      $('input[name="projectCheck"]').prop('checked', isChecked);
+    });
+
+    $('#batchDeleteBtn').click(function() {
+      let checkedIds = [];
+      $('input[name="projectCheck"]:checked').each(function() {
+        checkedIds.push($(this).val());
+      });
+      if (checkedIds.length === 0) {
+        alert('请选择要删除的项目！');
+        return;
+      }
+      if (confirm('确定要删除选中的项目吗？')) {
+        batchDeleteProjects(checkedIds);
+      }
+    });
+
+    $('#searchBtn').click(function() {
+      currentPage = 1;
+      loadProjectList();
+    });
+
+    $('#statusSelect').change(function() {
+      currentPage = 1;
+      loadProjectList();
+    });
+
+    $('#projectImg').change(function(e) {
+      let file = e.target.files[0];
+      if (file) {
+        let reader = new FileReader();
+        reader.onload = function(event) {
+          $('#imgPreview').attr('src', event.target.result).show();
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    $('#addProjectModal').on('hidden.bs.modal', function () {
+      $('#projectForm')[0].reset();
+      $('#projectId').val('');
+      $('#imgPreview').hide().attr('src', '');
+      $('#modalTitle').text('新增研学项目');
+    });
+  }
+
+  function loadProjectList() {
+    let params = {
+      page: currentPage,
+      size: pageSize,
+      keyword: $('#searchInput').val(),
+      status: $('#statusSelect').val()
+    };
+
+    $.ajax({
+      url: `${API_BASE_URL}/research/list`,
+      type: 'GET',
+      data: params,
+      success: function(res) {
+        console.log("接口返回：", res);
+        if (res.code === 200) {
+          totalCount = res.data.total;
+          projectListCache = res.data.list;
+          renderProjectTable(projectListCache);
+          renderPagination();
+        } else if (res.code === 401) {
+          handleNotLogin();
+        } else {
+          // 空数据不弹窗！只显示表格暂无数据
+          totalCount = 0;
+          projectListCache = [];
+          renderProjectTable([]);
+          renderPagination();
+        }
+      },
+      error: function(xhr) {
+        if(xhr.status === 401){
+          handleNotLogin();
+        }else{
+          // 报错也不弹窗，显示暂无数据
+          renderProjectTable([]);
+        }
+      }
+    });
+  }
+
+  function renderProjectTable(list) {
+    let html = '';
+    if (list.length === 0) {
+      html = '<tr><td colspan="9" class="text-center">暂无数据</td></tr>';
+    } else {
+      list.forEach(function(item) {
+        html += `
+          <tr>
+            <td><input type="checkbox" name="projectCheck" value="${item.id}"></td>
+            <td>${item.id}</td>
+            <td>${item.title}</td>
+            <td>${item.days}</td>
+            <td>${item.price}</td>
+            <td><img src="/${item.image_url}" style="max-width:50px;max-height:30px;border-radius:3px"></td>
+            <td>${item.status === 1 ? '<span class="label label-success">已上线</span>':'<span class="label label-default">已下线</span>'}</td>
+            <td>${item.create_time || '-'}</td>
+            <td>
+              <button class="btn btn-xs btn-warning" onclick="editProject(${item.id})">编辑</button>
+              <button class="btn btn-xs btn-danger" onclick="deleteProject(${item.id})">删除</button>
+              <button class="btn btn-xs btn-info" onclick="toggleStatus(${item.id},${item.status})">
+                ${item.status==1?'下线':'上线'}
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+    }
+    $('#projectTableBody').html(html);
+  }
+
+  function renderPagination() {
+    let totalPage = Math.ceil(totalCount / pageSize);
+    let html = '';
+    html += `<li ${currentPage==1?'class="disabled"':''}><a onclick="changePage(${currentPage-1})">上一页</a></li>`;
+    for(let i=1;i<=totalPage;i++){
+      html+=`<li ${currentPage==i?'class="active"':''}><a onclick="changePage(${i})">${i}</a></li>`;
+    }
+    html+=`<li ${currentPage==totalPage?'class="disabled"':''}><a onclick="changePage(${currentPage+1})">下一页</a></li>`;
+    $('#pagination').html(html);
+  }
+
+  function changePage(page){
+    if(page<1||page>Math.ceil(totalCount/pageSize)) return;
+    currentPage=page;
+    loadProjectList();
+  }
+
+  function editProject(id){
+    let item = projectListCache.find(item => item.id == id);
+    if(!item) { alert('未找到该项目'); return; }
+    $('#projectId').val(item.id);
+    $('#projectName').val(item.title);
+    $('#projectDuration').val(item.days);
+    $('#projectPrice').val(item.price);
+    $('#projectDesc').val(item.desc || '');
+    $('#projectStatus').val(item.status);
+    if(item.image_url) $('#imgPreview').attr('src', '/'+item.image_url).show();
+    $('#modalTitle').text('编辑研学项目');
+    $('#addProjectModal').modal('show');
+  }
+
+  function deleteProject(id){
+    if(!confirm('确定删除？')) return;
+    $.ajax({
+      url:`${API_BASE_URL}/research/delete`,
+      type:'POST',
+      contentType:'application/json',
+      data:JSON.stringify({id:id}),
+      success:function(res){
+        if(res.code===200){
+          alert('删除成功');
+          loadProjectList();
+        }else if(res.code===401){
+          handleNotLogin();
+        }else{
+          alert('删除失败');
+        }
+      }
+    });
+  }
+
+  function toggleStatus(id,status){
+    let newStatus=status===1?0:1;
+    if(!confirm(`确定${newStatus?'上线':'下线'}？`)) return;
+    $.ajax({
+      url:`${API_BASE_URL}/research/change-status`,
+      type:'POST',
+      contentType:'application/json',
+      data:JSON.stringify({id:id,status:newStatus}),
+      success:function(res){
+        if(res.code===200) loadProjectList();
+        else if(res.code===401) handleNotLogin();
+      }
+    });
+  }
+
+  function batchDeleteProjects(ids){
+    $.ajax({
+      url:`${API_BASE_URL}/research/batch-delete`,
+      type:'POST',
+      contentType:'application/json',
+      data:JSON.stringify({ids:ids}),
+      success:function(res){
+        if(res.code===200){
+          alert('批量删除成功');
+          loadProjectList();
+        }else if(res.code===401){
+          handleNotLogin();
+        }
+      }
+    });
+  }
+
+  function saveProject(){
+    if(!$('#projectName').val()){alert('请输入名称');return;}
+    let id=$('#projectId').val();
+    let formData=new FormData();
+    formData.append('title',$('#projectName').val());
+    formData.append('desc',$('#projectDesc').val());
+    formData.append('price',$('#projectPrice').val());
+    formData.append('days',$('#projectDuration').val());
+    formData.append('status',$('#projectStatus').val());
+    let img=$('#projectImg')[0].files[0];
+    if(img) formData.append('image_url',img);
+    if(id) formData.append('id',id);
+
+    $.ajax({
+      url:id ? `${API_BASE_URL}/research/edit` : `${API_BASE_URL}/research/add`,
+      type:'POST',
+      data:formData,
+      contentType:false,
+      processData:false,
+      success:function(res){
+        if(res.code===200){
+          alert('保存成功');
+          $('#addProjectModal').modal('hide');
+          loadProjectList();
+        }else if(res.code===401){
+          handleNotLogin();
+        }else{
+          alert('保存失败：'+res.msg);
+        }
+      }
+    });
+  }
+</script>
+</body>
+</html>

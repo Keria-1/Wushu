@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员登录 - 中华武术研学交流网</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>管理员登录</h2>
+        <div class="input-group">
+            <label>管理员账号</label>
+            <input type="text" id="username" placeholder="请输入管理员账号" value="admin">
+        </div>
+        <div class="input-group">
+            <label>登录密码</label>
+            <input type="password" id="password" placeholder="请输入密码" value="Admin123!">
+        </div>
+        <button class="login-btn" onclick="adminLogin()">登录后台</button>
+        <div class="error-msg" id="errorMsg"></div>
+    </div>
+
+    <script>
+        function adminLogin() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+
+            // 前端基础校验
+            if (!username || !password) {
+                errorMsg.textContent = '账号和密码不能为空';
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            // 发送登录请求
+            fetch('/admin/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.code === 200) {
+                    // 登录成功：跳转到管理员后台首页
+                    window.location.href = '/admin/index.html';
+                } else {
+                    // 登录失败：显示错误信息
+                    errorMsg.textContent = data.msg;
+                    errorMsg.style.display = 'block';
+                }
+            })
+            .catch(err => {
+                errorMsg.textContent = '网络异常，请稍后重试';
+                errorMsg.style.display = 'block';
+                console.error('登录请求失败:', err);
+            });
+        }
+
+        // 回车触发登录
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                adminLogin();
+            }
+        });
+    </script>
+</body>
+</html>

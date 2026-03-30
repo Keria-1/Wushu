@@ -1,0 +1,24 @@
+2026-02-25 14:12:16,239 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.2:5000
+2026-02-25 14:12:16,241 - INFO - [33mPress CTRL+C to quit[0m
+2026-02-25 14:12:26,133 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET / HTTP/1.1" 200 -
+2026-02-25 14:12:26,211 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET /css/index.css HTTP/1.1" 200 -
+2026-02-25 14:12:26,216 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET /images/banner.jpg HTTP/1.1" 200 -
+2026-02-25 14:12:26,219 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET /images/wushu1.jpg HTTP/1.1" 200 -
+2026-02-25 14:12:26,252 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "[33mGET /js/custom.js HTTP/1.1[0m" 404 -
+2026-02-25 14:12:26,256 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET /images/shaolin.jpg HTTP/1.1" 200 -
+2026-02-25 14:12:26,257 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET /images/wushu2.jpg HTTP/1.1" 200 -
+2026-02-25 14:12:26,258 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET /images/taiji.jpg HTTP/1.1" 200 -
+2026-02-25 14:12:26,270 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET /images/Logo.png HTTP/1.1" 200 -
+2026-02-25 14:12:26,270 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET /images/feiyi.jpg HTTP/1.1" 200 -
+2026-02-25 14:12:26,329 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:26] "GET /images/wushu3.jpg HTTP/1.1" 200 -
+2026-02-25 14:12:35,641 - INFO - 192.168.1.2 - - [25/Feb/2026 14:12:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-02-25 14:20:02,359 - INFO - 192.168.1.2 - - [25/Feb/2026 14:20:02] "GET /login.html HTTP/1.1" 200 -
+2026-02-25 14:20:02,438 - INFO - 192.168.1.2 - - [25/Feb/2026 14:20:02] "GET /css/login.css HTTP/1.1" 200 -
+2026-02-25 14:20:02,474 - INFO - 192.168.1.2 - - [25/Feb/2026 14:20:02] "GET /images/back.jpg HTTP/1.1" 200 -
+2026-02-25 14:20:02,474 - INFO - 192.168.1.2 - - [25/Feb/2026 14:20:02] "GET /images/background.jpg HTTP/1.1" 200 -
+2026-02-25 14:20:11,467 - INFO -  ˝æ›ø‚¡¨Ω”≥…π¶
+2026-02-25 14:20:11,472 - ERROR - ’À∫≈–£—È“Ï≥££∫(1146, "Table 'wushu_study.users' doesn't exist")
+2026-02-25 14:20:11,473 - INFO - 192.168.1.2 - - [25/Feb/2026 14:20:11] "POST /api/login/check-account HTTP/1.1" 200 -

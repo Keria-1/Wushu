@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>忘记密码 - 中华武术研学交流网</title>
+    <!-- 引入公共样式 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="css/forget.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- 全屏背景容器 -->
+    <div class="forget-fullpage">
+        <!-- 忘记密码卡片容器（居中显示） -->
+        <div class="forget-card-wrapper">
+            <div class="forget-card">
+                <!-- 忘记密码卡片头部 -->
+                <div class="forget-header">
+                    <h3><i class="fas fa-key me-2"></i>找回密码</h3>
+                    <p class="mb-0 mt-2">请按照步骤完成密码重置</p>
+                </div>
+                <!-- 忘记密码表单主体 -->
+                <div class="forget-body">
+                    <!-- 步骤指示器（修复样式） -->
+                    <div class="step-indicator">
+                        <div class="step-item active">
+                           <span>1</span>
+                            <div class="step-label">验证手机号</div>
+                        </div>
+                        <div class="step-item">
+                           <span>2</span>
+                            <div class="step-label">输入验证码</div>
+                        </div>
+                        <div class="step-item">
+                            <span>3</span>
+                            <div class="step-label">重置密码</div>
+                        </div>
+                    </div>
+
+                    <!-- 步骤1：验证手机号 -->
+                    <div class="step-panel active" id="step1">
+                        <form id="form1">
+                            <div class="mb-3">
+                                <div class="input-group" style="height: 45px;">
+                                    <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                    <input type="tel" class="form-control" id="phone" placeholder="请输入注册的手机号" required pattern="^1[3-9]\d{9}$">
+                                </div>
+                                <div class="form-text text-danger mt-1 d-none" id="phoneError">请输入正确的手机号</div>
+                            </div>
+                            <button type="button" class="btn-login" onclick="nextStep()">获取验证码</button>
+                        </form>
+                    </div>
+
+                    <!-- 步骤2：输入验证码（添加测试验证码逻辑） -->
+                    <div class="step-panel" id="step2">
+                        <form id="form2">
+                            <div class="mb-3">
+                                <label class="form-label">验证码</label>
+                                <div class="input-group" style="height: 45px;">
+                                    <span class="input-group-text"><i class="fas fa-shield-alt"></i></span>
+                                    <input type="text" class="form-control" id="code" placeholder="请输入6位验证码（测试码：666888）" required pattern="^\d{6}$">
+                                    <button type="button" class="btn-code" id="codeBtn" onclick="sendCode()">发送验证码</button>
+                                </div>
+                                <div class="form-text text-danger mt-1 d-none" id="codeError">请输入正确的验证码（测试码：666888）</div>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-light" onclick="prevStep()">上一步</button>
+                                <button type="button" class="btn-login" onclick="nextStep()">下一步</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 步骤3：重置密码（添加小眼睛） -->
+                    <div class="step-panel" id="step3">
+                        <form id="form3">
+                            <div class="mb-3">
+                                <label class="form-label">新密码</label>
+                                <div class="input-group" style="height: 45px;">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="newPwd" placeholder="请设置新密码（6-16位）" required pattern="^.{6,16}$">
+                                    <span class="input-group-text password-toggle" id="toggleNewPwd">
+                                        <i class="fas fa-eye-slash"></i>
+                                    </span>
+                                </div>
+                                <div class="form-text text-danger mt-1 d-none" id="pwdError">密码长度需在6-16位之间</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">确认新密码</label>
+                                <div class="input-group" style="height: 45px;">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="confirmPwd" placeholder="请再次输入新密码" required>
+                                    <span class="input-group-text password-toggle" id="toggleConfirmPwd">
+                                        <i class="fas fa-eye-slash"></i>
+                                    </span>
+                                </div>
+                                <div class="form-text text-danger mt-1 d-none" id="confirmError">两次密码输入不一致</div>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-light" onclick="prevStep()">上一步</button>
+                                <button type="button" class="btn-login" onclick="resetPassword()">完成重置</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 返回登录链接 -->
+                    <div class="forget-links mt-3">
+                        <a href="login.html"><i class="fas fa-arrow-left me-1"></i>返回登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 忘记密码逻辑脚本 -->
+    <script>
+        let currentStep = 1; // 当前步骤
+        let countdown = 60; // 验证码倒计时
+        let timer = null; // 倒计时定时器
+        const TEST_CODE = '666888'; // 测试验证码
+
+        // 密码显示/隐藏切换函数
+        function initPasswordToggle(toggleId, inputId) {
+            const toggleBtn = document.getElementById(toggleId);
+            const pwdInput = document.getElementById(inputId);
+            
+            toggleBtn.addEventListener('click', function() {
+                // 切换输入框类型
+                const type = pwdInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                pwdInput.setAttribute('type', type);
+                
+                // 切换图标
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-eye-slash');
+                icon.classList.toggle('fa-eye');
+            });
+        }
+
+        // 初始化密码切换功能
+        window.onload = function() {
+            initPasswordToggle('toggleNewPwd', 'newPwd');
+            initPasswordToggle('toggleConfirmPwd', 'confirmPwd');
+        }
+
+        // 下一步
+        function nextStep() {
+            // 验证当前步骤表单
+            if (!validateForm(currentStep)) return;
+            
+            // 更新步骤指示器
+            const stepItems = document.querySelectorAll('.step-item');
+            stepItems[currentStep - 1].classList.remove('active');
+            stepItems[currentStep - 1].classList.add('completed');
+            
+            currentStep++;
+            if (currentStep > 3) currentStep = 3;
+            
+            // 显示当前步骤面板
+            showStep(currentStep);
+            
+            // 更新步骤指示器
+            stepItems[currentStep - 1].classList.add('active');
+            
+            // 步骤2时自动提示测试验证码
+            if (currentStep === 2) {
+                alert(`测试验证码：${TEST_CODE}，可直接输入`);
+            }
+        }
+
+        // 上一步（修复步骤切换逻辑）
+        function prevStep() {
+            // 更新步骤指示器
+            const stepItems = document.querySelectorAll('.step-item');
+            stepItems[currentStep - 1].classList.remove('active');
+            
+            currentStep--;
+            if (currentStep < 1) currentStep = 1;
+            
+            // 显示当前步骤面板
+            showStep(currentStep);
+            
+            // 更新步骤指示器
+            stepItems[currentStep - 1].classList.add('active');
+            stepItems[currentStep - 1].classList.remove('completed');
+        }
+
+        // 显示指定步骤面板
+        function showStep(step) {
+            // 隐藏所有面板
+            document.querySelectorAll('.step-panel').forEach(panel => {
+                panel.classList.remove('active');
+                panel.style.display = 'none';
+            });
+            // 显示当前面板
+            const currentPanel = document.getElementById(`step${step}`);
+            currentPanel.classList.add('active');
+            currentPanel.style.display = 'block';
+        }
+
+        // 验证表单（添加测试验证码验证）
+        function validateForm(step) {
+            let isValid = true;
+            switch(step) {
+                case 1:
+                    const phone = document.getElementById('phone').value.trim();
+                    const phoneReg = /^1[3-9]\d{9}$/;
+                    if (!phoneReg.test(phone)) {
+                        document.getElementById('phoneError').classList.remove('d-none');
+                        isValid = false;
+                    } else {
+                        document.getElementById('phoneError').classList.add('d-none');
+                        // 步骤1验证通过后，自动触发验证码发送
+                        sendCode();
+                    }
+                    break;
+                case 2:
+                    const code = document.getElementById('code').value.trim();
+                    const codeReg = /^\d{6}$/;
+                    // 验证格式 + 测试验证码
+                    if (!codeReg.test(code)) {
+                        document.getElementById('codeError').classList.remove('d-none');
+                        isValid = false;
+                    } else if (code !== TEST_CODE) {
+                        document.getElementById('codeError').textContent = `验证码错误！测试验证码是：${TEST_CODE}`;
+                        document.getElementById('codeError').classList.remove('d-none');
+                        isValid = false;
+                    } else {
+                        document.getElementById('codeError').classList.add('d-none');
+                    }
+                    break;
+                case 3:
+                    const newPwd = document.getElementById('newPwd').value.trim();
+                    const confirmPwd = document.getElementById('confirmPwd').value.trim();
+                    const pwdReg = /^.{6,16}$/;
+                    
+                    // 验证密码长度
+                    if (!pwdReg.test(newPwd)) {
+                        document.getElementById('pwdError').classList.remove('d-none');
+                        isValid = false;
+                    } else {
+                        document.getElementById('pwdError').classList.add('d-none');
+                    }
+                    
+                    // 验证两次密码一致
+                    if (newPwd !== confirmPwd) {
+                        document.getElementById('confirmError').classList.remove('d-none');
+                        isValid = false;
+                    } else {
+                        document.getElementById('confirmError').classList.add('d-none');
+                    }
+                    break;
+            }
+            return isValid;
+        }
+
+        // 发送验证码（修复倒计时逻辑）
+        function sendCode() {
+            // 禁用按钮
+            const codeBtn = document.getElementById('codeBtn');
+            if (codeBtn) {
+                codeBtn.classList.add('disabled');
+                codeBtn.disabled = true;
+                
+                // 倒计时逻辑
+                timer = setInterval(() => {
+                    countdown--;
+                    codeBtn.innerHTML = `${countdown}s后重新发送`;
+                    
+                    if (countdown <= 0) {
+                        clearInterval(timer);
+                        codeBtn.innerHTML = '发送验证码';
+                        codeBtn.classList.remove('disabled');
+                        codeBtn.disabled = false;
+                        countdown = 60;
+                    }
+                }, 1000);
+            }
+            
+            // 模拟发送验证码成功
+            alert(`验证码已发送！测试验证码：${TEST_CODE}`);
+        }
+
+        // 重置密码
+        function resetPassword() {
+            if (!validateForm(3)) return;
+            
+            // 模拟重置密码成功
+            alert('密码重置成功！即将返回登录页面');
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
+        }
+
+        // 输入框焦点事件（清除错误提示）
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', function() {
+                const errorId = this.id + 'Error';
+                if (document.getElementById(errorId)) {
+                    document.getElementById(errorId).classList.add('d-none');
+                }
+            });
+        });
+
+        // 初始化显示第一步
+        showStep(1);
+    </script>
+</body>
+</html>
