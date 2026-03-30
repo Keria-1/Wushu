@@ -1,0 +1,377 @@
+/* 基础重置样式 */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+/* 导航栏样式 */
+.navbar {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding-bottom: 10px;
+    border-bottom: none;
+}
+
+/* Logo图片样式 */
+.logo-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* 登录按钮间距 */
+.login-btn {
+    margin-left: 8px;
+}
+/* 通用用户头像样式 */
+.user-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+/* 页面顶部间距 */
+body {
+    padding-top: 56px;
+    margin-top: 0 !important;
+}
+.user-avatar
+{
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+}
+.dropdown-toggle::after {
+    display: none !important;
+}
+/* 轮播图样式 */
+#wushuCarousel {
+    margin-top: 0 !important;
+    top: 0;
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.carousel {
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* 轮播图图片样式 */
+#wushuCarousel .carousel-item img {
+    height: 65vh;
+    object-fit: cover;
+    filter: brightness(0.95);
+}
+
+/* 轮播图文字样式 */
+.carousel-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1rem;
+}
+
+.carousel-desc {
+    font-size: 1.25rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1rem;
+}
+
+.carousel-btn {
+    margin-top: 1rem;
+}
+
+/* 轮播图箭头样式 */
+.carousel-control-prev-icon {
+    background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23b74551"%3e%3cpath d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/%3e%3c/svg%3e');
+}
+
+.carousel-control-next-icon {
+    background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23b74551"%3e%3cpath d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/%3e%3c/svg%3e');
+}
+
+/* 核心研学模块样式 */
+.research-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: #f8f9fa;
+}
+
+/* 模块标题样式 */
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.section-title p {
+    color: #6c757d;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.section-title hr {
+    width: 25%;
+    margin: 1rem auto;
+    border-color: #ffc107;
+}
+
+/* 研学卡片样式 */
+.research-card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease-in-out;
+}
+
+.research-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.research-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.research-card .card-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* 卡片图标颜色 */
+.research-card .fa-dragon {
+    color: #dc3545;
+    margin-right: 8px;
+}
+
+.research-card .fa-yin-yang {
+    color: #0d6efd;
+    margin-right: 8px;
+}
+
+.research-card .fa-award {
+    color: #ffc107;
+    margin-right: 8px;
+}
+
+.research-card .card-text {
+    color: #6c757d;
+}
+
+/* 卡片按钮样式 */
+.card-btn {
+    margin-right: 4px;
+}
+
+.shaolin-btn {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.taiji-btn {
+    border-color: #0d6efd;
+    color: #0d6efd;
+}
+
+.feiyi-btn {
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+.card-btn .fa-arrow-right {
+    margin-left: 4px;
+}
+
+/* 武术文化模块样式 */
+.culture-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: #f8f9fa;
+    color: #000000;
+}
+
+.culture-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.culture-desc {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 文化列表样式 */
+.culture-list {
+    margin-bottom: 2rem;
+}
+
+.culture-list li {
+    margin-bottom: 1rem;
+}
+
+.culture-list .fa-check-circle {
+    color: #ffc107;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+/* 文化模块图片样式 */
+.culture-img {
+    width: 500px;
+    height: 250px;
+    margin-left: 130px;
+    object-fit: cover;
+    border-radius: 0.375rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.culture-section .col-12 .culture-img {
+    height: 200px;
+}
+
+/* 文化模块按钮图标 */
+.culture-btn .fa-book-open {
+    margin-left: 4px;
+}
+
+/* 页脚样式 */
+.footer-section {
+    background-color: #000;
+    color: #d0d5da;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.footer-title {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-desc {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* 页脚社交图标 */
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer-social a {
+    color: #d0d5da;
+    font-size: 1.5rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-social a:hover {
+    color: #fff;
+}
+
+/* 页脚导航 */
+.footer-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-nav a {
+    color: #d0d5da;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+/* 页脚联系方式 */
+.footer-contact li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact .fas {
+    color: #ffc107;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+/* 页脚表单 */
+.footer-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* 页脚分割线 */
+.footer-hr {
+    border-color: #343a40;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* 版权信息 */
+.copyright {
+    color: #bfc9d2;
+    font-size: 0.9rem;
+}
+
+/* 导航栏滚动效果 */
+.navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    /* 轮播图高度 */
+    #wushuCarousel .carousel-item img {
+        height: 50vh;
+    }
+
+    /* 文字大小 */
+    .carousel-title, .culture-title, .section-title h2 {
+        font-size: 2.5rem;
+    }
+
+    /* 模块间距 */
+    .research-section, .culture-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    /* 标题文字宽度 */
+    .section-title p {
+        width: 95%;
+    }
+
+    /* 导航栏和轮播图适配 */
+    .navbar, #wushuCarousel {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    /* 页脚表单适配 */
+    .footer-form {
+        flex-direction: column;
+    }
+}

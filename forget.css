@@ -1,0 +1,253 @@
+/* 忘记密码页面全屏样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Microsoft Yahei", sans-serif;
+    min-height: 100vh;
+    /* 页面背景图（替换为你的背景图路径） */
+    background: url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* 全屏容器 */
+.forget-fullpage {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* 卡片容器 */
+.forget-card-wrapper {
+    width: 100%;
+    max-width: 700px;
+}
+
+/* 忘记密码卡片 */
+.forget-card {
+    width: 700px;
+    min-height: 300px;
+    max-height: 500px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+/* 卡片头部 */
+.forget-header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.forget-header h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* 卡片主体 */
+.forget-body {
+    padding: 40px;
+}
+
+/* 步骤指示器样式 */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 55px;
+    position: relative;
+}
+.step-indicator::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background-color: #ddd;
+    z-index: 1;
+}
+.step-item {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s;
+    margin: 0 auto;
+}
+.step-item.active {
+    background-color: #b74551;
+    border-color: #b74551;
+    color: #fff;
+}
+.step-item.completed {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+.step-label {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+    text-align: center;
+}
+/* 表单组间距*/
+.form-group {
+    margin-bottom: 20px;
+}
+/* 输入框样式 */
+.input-group {
+    height: 45px;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    margin-bottom: 8px; /* 输入框与错误提示的间距 */
+}
+.input-group-text {
+    height: 100%;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    background-color: #f8f9fa;
+}
+.form-control {
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+}
+.form-control:focus {
+    border-color: #b74551;
+    box-shadow: 0 0 0 0.2rem rgba(183, 69, 81, 0.25);
+    outline: none;
+}
+/* 密码显示隐藏 */
+.password-toggle {
+    cursor: pointer;
+    user-select: none;
+}
+.password-toggle:hover {
+    color: #dc3545;
+}
+/* 验证码倒计时按钮 */
+.btn-code {
+    background-color: #f8f9fa;
+    color: #666;
+    border: 1px solid #ddd;
+    padding: 0 15px;
+    border-radius: 0 5px 5px 0;
+    transition: all 0.3s;
+}
+.btn-code:hover, .btn-code:active {
+    background-color: #e9ecef;
+    color: #333;
+}
+.btn-code.disabled {
+    background-color: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* 步骤面板样式 */
+.step-panel {
+    display: none;
+    text-align: center;
+}
+.step-panel.active {
+    display: block;
+}
+
+/* 按钮样式 */
+.btn-login {
+    background-color: #b74551;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 25px;
+}
+.btn-login:hover {
+    background-color: #9a3844;
+    color: #fff;
+}
+
+/* 按钮组样式 */
+.btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.btn-group .btn-light {
+    width: 50%;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 12px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+.btn-group .btn-light:hover {
+    background-color: #f8f9fa;
+}
+.btn-group .btn-login {
+    width: 50%;
+    margin-top: 0;
+}
+
+/* 错误提示文字 */
+.form-text.text-danger {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #dc3545 !important;
+}
+
+/* 返回登录链接 */
+.forget-links {
+    text-align: center;
+    margin-top: 30px;
+}
+.forget-links a {
+    color: #b74551;
+    text-decoration: none;
+    font-size: 14px;
+}
+.forget-links a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式适配 */
+@media (max-width: 576px) {
+    .forget-body {
+        padding: 20px;
+    }
+    .input-group-text, .form-control {
+        padding: 10px 12px;
+    }
+    .btn-login, .btn-group .btn-light {
+        padding: 10px;
+    }
+}

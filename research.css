@@ -1,0 +1,342 @@
+/* 基础通用样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 导航栏样式 */
+.navbar {
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+/* Logo图片样式 */
+.logo-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* 登录按钮间距 */
+.login-btn {
+    margin-left: 8px;
+}
+.user-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+/* 导航栏图标间距 */
+.navbar-nav .fas {
+    margin-right: 8px;
+}
+
+/* 导航栏滚动效果 */
+.navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 页面标题区样式 */
+.page-header {
+    background-color: #212529;
+    color: #fff;
+    padding: 3rem 0;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* 研学板块通用样式 */
+.research-section {
+    padding: 60px 0;
+}
+
+/* 课程板块背景 */
+.course-section {
+    background-color: #f8f9fa;
+}
+
+/* 成果展示板块背景 */
+.achievement-section {
+    background-color: #fff;
+}
+
+/* 板块标题样式 */
+.section-title {
+    position: relative;
+    display: inline-block;
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 0 auto 40px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background-color: #dc3545;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 课程卡片样式 */
+.course-card {
+    background-color: #fff;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 课程图片样式 */
+.course-card .card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+/* 价格标签样式 */
+.price-tag {
+    background-color: #ffc107;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+/* 课程卡片内容区 */
+.card-content {
+    padding: 1.5rem;
+}
+
+/* 课程标题样式 */
+.course-card .card-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* 课程描述样式 */
+.course-card .card-text {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* 课程信息（地点/时长） */
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.course-info .fas {
+    color: #ffc107;
+    margin-right: 8px;
+}
+
+/* 课程按钮样式 */
+.course-btn {
+    margin-top: 0.5rem;
+}
+
+/* 成果展示卡片样式 */
+.achievement-card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 成果图片样式 */
+.achievement-card .card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+/* 成果标题样式 */
+.achievement-card .card-title {
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+/* 成果描述样式 */
+.achievement-card .card-text {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* 成果数据统计样式 */
+.achievement-stats {
+    padding: 2rem 0;
+    margin-top: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* 数据项样式 */
+.stat-item {
+    padding: 1rem;
+}
+
+/* 数据数字样式 */
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #dc3545;
+    margin-bottom: 0.5rem;
+}
+
+/* 数据描述样式 */
+.stat-desc {
+    color: #6c757d;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* 页脚样式 */
+.footer-section {
+    background-color: #000;
+    color: #d0d5da;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.footer-title {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-desc {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* 页脚社交图标 */
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer-social a {
+    color: #d0d5da;
+    font-size: 1.5rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-social a:hover {
+    color: #fff;
+}
+
+/* 页脚导航 */
+.footer-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-nav a {
+    color: #d0d5da;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+/* 页脚联系方式 */
+.footer-contact li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact .fas {
+    color: #ffc107;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+/* 页脚表单 */
+.footer-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* 页脚分割线 */
+.footer-hr {
+    border-color: #343a40;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* 版权信息 */
+.copyright {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    /* 页面标题字号 */
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    /* 页脚表单适配 */
+    .footer-form {
+        flex-direction: column;
+    }
+
+    /* 板块内边距 */
+    .research-section {
+        padding: 40px 0;
+    }
+
+    /* 课程卡片信息换行 */
+    .course-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    /* 成果数据字号适配 */
+    .stat-number {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,41 @@
+/* 红色主题主色值 */
+:root {
+    --main-red: #dc3545;
+    --light-red: #f8d7da;
+}
+
+/* 背景红色 */
+.bg-red {
+    background-color: var(--main-red);
+}
+
+/* 浅红色背景 */
+.bg-light-red {
+    background-color: var(--light-red);
+}
+
+/* 卡片边框红色 */
+.border-red {
+    border-color: var(--main-red);
+}
+
+/* 用户头像 */
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+
+/* 表单标签加粗 */
+.form-label {
+    font-weight: 500;
+}
+
+/* 导航栏文字颜色 */
+.navbar.bg-red .navbar-brand,
+.navbar.bg-red .nav-link,
+.navbar.bg-red .text-white {
+    color: #fff;
+}
